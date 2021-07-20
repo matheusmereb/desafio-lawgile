@@ -3,7 +3,7 @@ import React from 'react'
 export default class Form extends React.Component{
     constructor(props){
         super(props)
-        this.state = {nome: '', email: '', aceito: true}
+        this.state = {nome: '', email: '', produto: '', quantidade: 1, valor: 0, total: 0}
 
         this.handleSubmit = (event) => {
             event.preventDefault()
@@ -23,34 +23,42 @@ export default class Form extends React.Component{
         this.changeCheckbox = (event) => {
             this.setState({aceito: event.target.checked})
         }
-        
-        this.handleChange = this.handleChange.bind(this);
+
+        this.changeProduct = (event) => {    
+            this.setState({produto: event.target.value});  
+        }
+    
+        this.changeQuantity = (event) => {
+            this.setState({quantidade: event.target.value})
+            const value = this.produto * this.quantidade
+            this.setState({valor: value.target.value})
+        }
+
+        // this.handleValue = () => {}
     }
 
-    handleChange(event) {    
-        this.setState({value: event.target.value});  
-    }
 
     render(){
         return(
             <div className="container cart-div" id="cart">
-                <label>
+                <label>Nome: 
                     <input className="" type="text" value={this.state.nome} onChange={this.changeName} placeholder="Nome"/>
                 </label>
                 <br />
-                <label>
+                <label>E-mail:
                     <input className="" type="text" value={this.state.email} onChange={this.changeEmail} placeholder="E-mail"/>
                 </label>
                 <br />
-                <label>
-                    <select id="type" onChange={this.handleChange}>
+                <label>Selecione o produto e a quantidade desejada:
+                    <br></br>
+                    <select id="type" onChange={this.changeProduct}>
                         <option value="verde">Post-it Verde</option>
                         <option value="rosa">Post-it Rosa</option>
                         <option value="laranja">Post-it Laranja</option>
                         <option value="azul">Post-it Azul</option>
                         <option value="amarelo">Post-it Amarelo</option>
                     </select>
-                    <select id="qtd">
+                    <select id="qtd" onChange={this.changeQuantity}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -62,7 +70,7 @@ export default class Form extends React.Component{
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <p>R$00,00</p>
+                    <p>Valor total - R${(this.valor)}</p>
                 </label>
                 <button>Adicionar</button>
                 <br />
