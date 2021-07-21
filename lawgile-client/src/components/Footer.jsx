@@ -13,10 +13,10 @@ export default function Footer() {
             </div>
 
             <div>
-                <span class="iconify" data-icon="simple-line-icons:social-facebook" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
-                <span class="iconify" data-icon="simple-line-icons:social-youtube" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
-                <span class="iconify" data-icon="simple-line-icons:social-instagram" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
-                <span class="iconify" data-icon="simple-line-icons:social-twitter" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
+                <span className="iconify" data-icon="simple-line-icons:social-facebook" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
+                <span className="iconify" data-icon="simple-line-icons:social-youtube" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
+                <span className="iconify" data-icon="simple-line-icons:social-instagram" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
+                <span className="iconify" data-icon="simple-line-icons:social-twitter" data-inline="false"></span>&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     )

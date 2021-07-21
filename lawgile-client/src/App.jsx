@@ -16,8 +16,10 @@ export default function App() {
       <hr></hr>
       <Showcase></Showcase>
       <hr></hr>
-      <Cart></Cart>
-      <Footer></Footer>
+      <div className="container-2">
+        <Cart></Cart>
+        <Footer></Footer>
+      </div>
     </div>
   )
 }

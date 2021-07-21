@@ -15,7 +15,7 @@ export default function Landing(){
                 <source src={Test1} type="video/mp4"/>
             </video>
             <div className="l-info">
-                <figure><img src={Sale} class="slide-in-blurred-top"/></figure>
+                <figure><img src={Sale} className="slide-in-blurred-top"/></figure>
                 <div className="l-text" >
                     <h1 className="l-title">ATÉ 50% OFF NA BLACK FRIDAY</h1>
                     <h4 className="l-body">Nessa Black Friday temos descontos de até 50% em pedidos acima de 10 caixas de Post-its variados</h4>

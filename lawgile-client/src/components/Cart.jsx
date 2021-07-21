@@ -1,9 +1,10 @@
 import React from 'react'
+import List from './List'
 
 export default class Form extends React.Component{
     constructor(props){
         super(props)
-        this.state = {nome: '', email: '', produto: '', quantidade: 1, valor: 0, total: 0}
+        this.state = {nome: '', email: '', produto: '', adicionado: false, quantidade: 1, valor: 0, total: 0}
 
         this.handleSubmit = (event) => {
             event.preventDefault()
@@ -20,8 +21,8 @@ export default class Form extends React.Component{
             this.setState({email: event.target.value})
         }
 
-        this.changeCheckbox = (event) => {
-            this.setState({aceito: event.target.checked})
+        this.handleValue = (event) => {
+            this.setState({valor: event.target.value})
         }
 
         this.changeProduct = (event) => {    
@@ -29,18 +30,20 @@ export default class Form extends React.Component{
         }
     
         this.changeQuantity = (event) => {
-            this.setState({quantidade: event.target.value})
-            const value = this.produto * this.quantidade
-            this.setState({valor: value.target.value})
+            this.setState({quantidade: event.target.value})           
         }
 
-        // this.handleValue = () => {}
+        /* this. */
+
+        
     }
 
-
     render(){
+        let { adicionado } = this.state
+
         return(
             <div className="container cart-div" id="cart">
+                
                 <label>Nome: 
                     <input className="" type="text" value={this.state.nome} onChange={this.changeName} placeholder="Nome"/>
                 </label>
@@ -49,14 +52,14 @@ export default class Form extends React.Component{
                     <input className="" type="text" value={this.state.email} onChange={this.changeEmail} placeholder="E-mail"/>
                 </label>
                 <br />
-                <label>Selecione o produto e a quantidade desejada:
+                <label>Selecione o produto e a quantidade desejada (em cxs.):
                     <br></br>
                     <select id="type" onChange={this.changeProduct}>
-                        <option value="verde">Post-it Verde</option>
-                        <option value="rosa">Post-it Rosa</option>
-                        <option value="laranja">Post-it Laranja</option>
-                        <option value="azul">Post-it Azul</option>
-                        <option value="amarelo">Post-it Amarelo</option>
+                        <option value="verde" id="produto">Post-it Verde</option>
+                        <option value="rosa" id="produto">Post-it Rosa</option>
+                        <option value="laranja" id="produto">Post-it Laranja</option>
+                        <option value="azul" id="produto">Post-it Azul</option>
+                        <option value="amarelo" id="produto">Post-it Amarelo</option>
                     </select>
                     <select id="qtd" onChange={this.changeQuantity}>
                         <option value="1">1</option>
@@ -70,13 +73,9 @@ export default class Form extends React.Component{
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <p>Valor total - R${(this.valor)}</p>
+                    <p>Valor total - R${(this.state.valor)}</p>
                 </label>
-                <button>Adicionar</button>
-                <br />
-                <div>
-                    {/* Pedido -> Item x Quantidade - Valor Total  && Delete btn*/}
-                </div>
+                <List /> 
                 <br />
                 <label>
                     <button className="l-btn l-btn-2" onClick={this.handleSubmit}>FINALIZAR PEDIDO</button>

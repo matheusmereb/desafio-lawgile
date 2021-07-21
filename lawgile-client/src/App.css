@@ -26,6 +26,15 @@ hr {
   justify-content: center;
 }
 
+.container-2 {
+  height: 100vh;
+  width: 100%;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
 /* NAVBAR */
 .navbar-div {
   width: 100%;
@@ -38,6 +47,7 @@ hr {
   display: flex;
   justify-content: space-evenly;
   align-content: center;
+  z-index: +5;
 }
 
 .nav-link {
@@ -183,16 +193,26 @@ hr {
   color: black;
 }
 
+.cart-div {
+  flex-wrap: wrap;
+}
+.cart-div :first-child,
+.cart-div :nth-child(2) {
+  flex-grow: 3;
+}
+
 /* FOOTER */
 .footer-div {
   width: 100%;
   height: 45px;
   background-color: #282c3477;
-  bottom: 0;
+  position: relative;
+  bottom: 0px;
   padding: 10px;
   font-weight: 200;
   display: flex;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .footer-div .nav-logo:hover {
@@ -236,13 +256,6 @@ hr {
   animation: slide-in-blurred-top 1.5s cubic-bezier(0.23, 1, 0.32, 1) alternate
     both;
   margin-top: 50px;
-}
-
-.slide-in-blurred-top :hover img {
-  -webkit-animation: slide-out-blurred-bottom 1.5s
-    cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
-  animation: slide-out-blurred-bottom 1.5s
-    cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
 }
 
 @keyframes slide-in-blurred-top {
