@@ -37,6 +37,7 @@ const Carrinho = () => {
         <div>
             <div className="container">
                 <form className="cart-div" id="cart" >
+                    <h3 style={{marginBottom: 30}}>PEÇA JÁ</h3>
                     <label>Nome:
                         <input className="" type="text" placeholder="Nome"/>
                     </label>
@@ -66,6 +67,7 @@ const Carrinho = () => {
                             <option value="x 9">9</option>
                             <option value="x 10">10</option>
                         </select>
+                    <button onClick={() => handleClick()}>Add Item</button>
                     </label>
                     <ul>
                     {items.map((item) => (
@@ -80,7 +82,6 @@ const Carrinho = () => {
                         ))}
                     </ul>
                     <br />
-                    <button onClick={() => handleClick()}>Add Item</button>
                     <label>
                         <input type="submit" className="l-btn l-btn-2" value="FINALIZAR PEDIDO" onClick={() => handleSubmit()}></input>
                     </label>

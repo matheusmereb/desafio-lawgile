@@ -1,5 +1,5 @@
 import React from 'react';
-import Test1 from './../assets/test1.mp4';
+import Test from './../assets/test.mp4';
 import Form from './Form';
 import Sale from './../assets/sale.png'
 
@@ -12,7 +12,7 @@ export default function Landing(){
                 autoPlay
                 muted
                 loop>
-                <source src={Test1} type="video/mp4"/>
+                <source src={Test} type="video/mp4"/>
             </video>
             <div className="l-info">
                 <figure><img src={Sale} className="slide-in-blurred-top"/></figure>
