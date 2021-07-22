@@ -4,7 +4,7 @@ import Landing from './components/Landing'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Showcase from './components/Showcase'
-import Cart from './components/Cart'
+import Carrinho from './components/Carrinho'
 
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
       <Showcase></Showcase>
       <hr></hr>
       <div className="container-2">
-        <Cart></Cart>
+        <Carrinho></Carrinho>
         <Footer></Footer>
       </div>
     </div>

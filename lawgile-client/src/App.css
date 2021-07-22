@@ -191,6 +191,7 @@ hr {
 /* CART */
 .cart-div * {
   color: black;
+  margin: 5px;
 }
 
 .cart-div {
