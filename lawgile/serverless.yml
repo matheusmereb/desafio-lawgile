@@ -1,6 +1,7 @@
-service: notes-api
+service: lawgile-api
+disabledDeprecations:
+  - "*"
 
-# Create an optimized package for our functions
 package:
   individually: true
 
@@ -13,12 +14,12 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: prod
-  region: us-east-1
+  region: sa-east-1
 
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableName: notes
+    tableName: lawgile
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -32,25 +33,26 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: "arn:aws:dynamodb:sa-east-1:*:*"
 
 functions:
-  # Defines an HTTP API endpoint that calls the main function in create.js
-  # - path: url path is /notes
-  # - method: POST request
   create:
     handler: create.main
     events:
       - http:
-          path: notes
+          path: pedidos
           method: post
 
   get:
-  # Defines an HTTP API endpoint that calls the main function in get.js
-  # - path: url path is /notes/{id}
-  # - method: GET request
-  handler: get.main
-  events:
-    - http:
-        path: notes/{id}
-        method: get
+    handler: get.main
+    events:
+      - http:
+          path: pedidos/{id}
+          method: get
+
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: pedidos
+          method: get
