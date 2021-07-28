@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { API } from "aws-amplify"
+// import { API } from "aws-amplify"
 // import config from "../config"
 import { useHistory } from "react-router-dom"
 
@@ -18,7 +18,7 @@ export default function Carrinho() {
             produto: inputItem.current.value,
             quantidade: qtyItem.current.value
         }
-        setItems([...items, newItem]);
+        // setItems([...items, newItem]);
     }
 
     function handleRemove(id) {
@@ -28,13 +28,13 @@ export default function Carrinho() {
 
     function handleSubmit() {
 
-        createPedido({ content })
+        /* createPedido({ content })
         
         function createPedido(pedido) {
           return API.post("lawgile", "/pedidos", {
             body: pedido
           })
-        }
+        } */
         console.log('Submitted')
     }
 

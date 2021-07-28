@@ -6,7 +6,6 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "aws-amplify": "^4.2.1",
     "bootstrap": "^5.0.2",
     "bootstrap-icons": "^1.5.0",
     "react": "^17.0.0",
