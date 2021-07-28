@@ -18,7 +18,7 @@ export default function Carrinho() {
             produto: inputItem.current.value,
             quantidade: qtyItem.current.value
         }
-        // setItems([...items, newItem]);
+        setItems([...items, newItem]);
     }
 
     function handleRemove(id) {
