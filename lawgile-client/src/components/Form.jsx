@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from "react-bootstrap/Nav";
 
 export default class Form extends React.Component{
     constructor(props){
@@ -40,8 +41,7 @@ export default class Form extends React.Component{
                     <input type="checkbox" checked={this.state.aceito} onChange={this.changeCheckbox} style={{margin: 10, opacity: '80%'}} /> Aceito receber informações promocionais pelo e-mail
                 </label>
                 <br />
-                <button className="l-btn l-btn-1" onClick={this.handleSubmit}>INSCREVA-ME</button>
-                <a data-scroll href="#showcase"><button className="l-btn l-btn-2">QUERO SABER MAIS</button></a>
+                <button className="l-btn l-btn-1" onClick={this.handleSubmit}>INSCREVA-ME</button>&nbsp;<Nav.Link href="/showcase" className="form-link"><button className="l-btn l-btn-2">QUERO SABER MAIS</button></Nav.Link>
             </div>
         )
     }

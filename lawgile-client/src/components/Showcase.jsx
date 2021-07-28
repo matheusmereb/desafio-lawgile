@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from './Card'
+import Card from '../components/Card'
 
 const Showcase = () => {
     return ( 
         <>
-            <div className="container" id="showcase">
+            <div className="section" id="showcase">
                 <div className="showcase">
                     <h2 className="s-title">PRODUTOS</h2>
                     <br></br>

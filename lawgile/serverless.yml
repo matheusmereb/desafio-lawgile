@@ -16,13 +16,9 @@ provider:
   stage: prod
   region: sa-east-1
 
-  # These environment variables are made available to our functions
-  # under process.env.
   environment:
     tableName: lawgile
 
-  # 'iamRoleStatements' defines the permission policy for the Lambda function.
-  # In this case Lambda functions are granted with permissions to access DynamoDB.
   iamRoleStatements:
     - Effect: Allow
       Action:

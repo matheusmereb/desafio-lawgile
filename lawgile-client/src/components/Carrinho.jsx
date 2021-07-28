@@ -1,18 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react'
+import { API } from "aws-amplify"
+// import config from "../config"
+import { useHistory } from "react-router-dom"
 
-const Carrinho = () => {
+export default function Carrinho() {
     const [items, setItems] = useState([])
-
-    /* const [pedido, setPedido] = useState({
-        nome: '',
-        email: '',
-        pedido: items
-    }) */
-
+    const [isLoading, setIsLoading] = useState(false)
     const inputItem = useRef(null)
     const qtyItem = useRef(null)
+    const history = useHistory()
 
-    const handleClick = () => {
+    function handleClick() {
         let date = new Date()
         date = date.toString()
         const newItem = {
@@ -20,24 +18,32 @@ const Carrinho = () => {
             produto: inputItem.current.value,
             quantidade: qtyItem.current.value
         }
-        console.log(newItem);
         setItems([...items, newItem]);
     }
 
     function handleRemove(id) {
-        const newItems = items.filter((item) => item.id !== id);
-        setItems(newItems);
+        const newItems = items.filter((item) => item.id !== id)
+        setItems(newItems)
     }
 
-    const handleSubmit = () => {
+    function handleSubmit() {
+
+        createPedido({ content })
+        
+        function createPedido(pedido) {
+          return API.post("lawgile", "/pedidos", {
+            body: pedido
+          })
+        }
         console.log('Submitted')
     }
 
     return ( 
         <div>
-            <div className="container">
-                <form className="cart-div" id="cart" >
-                    <h3 style={{marginBottom: 30}}>PEÇA JÁ</h3>
+            <div className="section" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
+                <form className="cart-div" id="cart" onSubmit={
+                    event => event.preventDefault()}>
+                    <h3 style={{marginBottom: 40, fontWeight: 'bold', fontSize: '2rem'}}>PEÇA JÁ</h3>
                     <label>Nome:
                         <input className="" type="text" placeholder="Nome"/>
                     </label>
@@ -75,7 +81,7 @@ const Carrinho = () => {
                             <span>{item.produto}</span>&nbsp;&nbsp;
                             <span>{item.quantidade}</span>&nbsp;&nbsp;
                             <span>{item.valor}</span>&nbsp;&nbsp;&nbsp;
-                            <button type="button" onClick={() => handleRemove(item.id)}>
+                            <button type="button" onClick={handleRemove(item.id)}>
                                 Remove
                             </button>
                         </li>
@@ -83,12 +89,10 @@ const Carrinho = () => {
                     </ul>
                     <br />
                     <label>
-                        <input type="submit" className="l-btn l-btn-2" value="FINALIZAR PEDIDO" onClick={() => handleSubmit()}></input>
+                        <input type="submit" className="l-btn l-btn-2" value="FINALIZAR PEDIDO" onClick={handleSubmit()}></input>
                     </label>
                 </form>
             </div>
         </div>
-    );
+    )
 }
- 
-export default Carrinho;

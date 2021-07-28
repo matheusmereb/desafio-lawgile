@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
     return ( 
         <>
-            <div className="card">
+            <div className="show-card">
                 <img className="card-img-top" src={props.Color} style={{width: '8rem'}}/>
                 <div className="card-body">
                     <h6 className="card-title">Post-it {props.Name}</h6>
